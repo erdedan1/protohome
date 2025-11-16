@@ -1,4 +1,4 @@
-module proto
+module github.com/erdedan1/protohome
 
 go 1.24.6
 
