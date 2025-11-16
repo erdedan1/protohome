@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        v6.33.1
-// source: market/market.proto
+// source: market.proto
 
-package market
+package gen
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -31,7 +31,7 @@ type ViewMarketsRequest struct {
 
 func (x *ViewMarketsRequest) Reset() {
 	*x = ViewMarketsRequest{}
-	mi := &file_market_market_proto_msgTypes[0]
+	mi := &file_market_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *ViewMarketsRequest) String() string {
 func (*ViewMarketsRequest) ProtoMessage() {}
 
 func (x *ViewMarketsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_market_market_proto_msgTypes[0]
+	mi := &file_market_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *ViewMarketsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewMarketsRequest.ProtoReflect.Descriptor instead.
 func (*ViewMarketsRequest) Descriptor() ([]byte, []int) {
-	return file_market_market_proto_rawDescGZIP(), []int{0}
+	return file_market_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ViewMarketsRequest) GetUserRoles() []int64 {
@@ -75,7 +75,7 @@ type ViewMarketsResponse struct {
 
 func (x *ViewMarketsResponse) Reset() {
 	*x = ViewMarketsResponse{}
-	mi := &file_market_market_proto_msgTypes[1]
+	mi := &file_market_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -87,7 +87,7 @@ func (x *ViewMarketsResponse) String() string {
 func (*ViewMarketsResponse) ProtoMessage() {}
 
 func (x *ViewMarketsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_market_market_proto_msgTypes[1]
+	mi := &file_market_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +100,7 @@ func (x *ViewMarketsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewMarketsResponse.ProtoReflect.Descriptor instead.
 func (*ViewMarketsResponse) Descriptor() ([]byte, []int) {
-	return file_market_market_proto_rawDescGZIP(), []int{1}
+	return file_market_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *ViewMarketsResponse) GetMarkets() []*Market {
@@ -124,7 +124,7 @@ type Market struct {
 
 func (x *Market) Reset() {
 	*x = Market{}
-	mi := &file_market_market_proto_msgTypes[2]
+	mi := &file_market_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -136,7 +136,7 @@ func (x *Market) String() string {
 func (*Market) ProtoMessage() {}
 
 func (x *Market) ProtoReflect() protoreflect.Message {
-	mi := &file_market_market_proto_msgTypes[2]
+	mi := &file_market_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -149,7 +149,7 @@ func (x *Market) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Market.ProtoReflect.Descriptor instead.
 func (*Market) Descriptor() ([]byte, []int) {
-	return file_market_market_proto_rawDescGZIP(), []int{2}
+	return file_market_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Market) GetId() int64 {
@@ -194,16 +194,16 @@ func (x *Market) GetDeletedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-var File_market_market_proto protoreflect.FileDescriptor
+var File_market_proto protoreflect.FileDescriptor
 
-const file_market_market_proto_rawDesc = "" +
+const file_market_proto_rawDesc = "" +
 	"\n" +
-	"\x13market/market.proto\x12\x06market\x1a\x1fgoogle/protobuf/timestamp.proto\"3\n" +
+	"\fmarket.proto\x12\x05proto\x1a\x1fgoogle/protobuf/timestamp.proto\"3\n" +
 	"\x12ViewMarketsRequest\x12\x1d\n" +
 	"\n" +
-	"user_roles\x18\x01 \x03(\x03R\tuserRoles\"?\n" +
-	"\x13ViewMarketsResponse\x12(\n" +
-	"\amarkets\x18\x01 \x03(\v2\x0e.market.MarketR\amarkets\"\xf7\x01\n" +
+	"user_roles\x18\x01 \x03(\x03R\tuserRoles\">\n" +
+	"\x13ViewMarketsResponse\x12'\n" +
+	"\amarkets\x18\x01 \x03(\v2\r.proto.MarketR\amarkets\"\xf7\x01\n" +
 	"\x06Market\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
@@ -213,36 +213,36 @@ const file_market_market_proto_rawDesc = "" +
 	"\n" +
 	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
-	"deleted_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt2W\n" +
-	"\rMarketService\x12F\n" +
-	"\vViewMarkets\x12\x1a.market.ViewMarketsRequest\x1a\x1b.market.ViewMarketsResponseB\x0eZ\fproto/marketb\x06proto3"
+	"deleted_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt2U\n" +
+	"\rMarketService\x12D\n" +
+	"\vViewMarkets\x12\x19.proto.ViewMarketsRequest\x1a\x1a.proto.ViewMarketsResponseB\vZ\tproto/genb\x06proto3"
 
 var (
-	file_market_market_proto_rawDescOnce sync.Once
-	file_market_market_proto_rawDescData []byte
+	file_market_proto_rawDescOnce sync.Once
+	file_market_proto_rawDescData []byte
 )
 
-func file_market_market_proto_rawDescGZIP() []byte {
-	file_market_market_proto_rawDescOnce.Do(func() {
-		file_market_market_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_market_market_proto_rawDesc), len(file_market_market_proto_rawDesc)))
+func file_market_proto_rawDescGZIP() []byte {
+	file_market_proto_rawDescOnce.Do(func() {
+		file_market_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_market_proto_rawDesc), len(file_market_proto_rawDesc)))
 	})
-	return file_market_market_proto_rawDescData
+	return file_market_proto_rawDescData
 }
 
-var file_market_market_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_market_market_proto_goTypes = []any{
-	(*ViewMarketsRequest)(nil),    // 0: market.ViewMarketsRequest
-	(*ViewMarketsResponse)(nil),   // 1: market.ViewMarketsResponse
-	(*Market)(nil),                // 2: market.Market
+var file_market_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_market_proto_goTypes = []any{
+	(*ViewMarketsRequest)(nil),    // 0: proto.ViewMarketsRequest
+	(*ViewMarketsResponse)(nil),   // 1: proto.ViewMarketsResponse
+	(*Market)(nil),                // 2: proto.Market
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
-var file_market_market_proto_depIdxs = []int32{
-	2, // 0: market.ViewMarketsResponse.markets:type_name -> market.Market
-	3, // 1: market.Market.created_at:type_name -> google.protobuf.Timestamp
-	3, // 2: market.Market.updated_at:type_name -> google.protobuf.Timestamp
-	3, // 3: market.Market.deleted_at:type_name -> google.protobuf.Timestamp
-	0, // 4: market.MarketService.ViewMarkets:input_type -> market.ViewMarketsRequest
-	1, // 5: market.MarketService.ViewMarkets:output_type -> market.ViewMarketsResponse
+var file_market_proto_depIdxs = []int32{
+	2, // 0: proto.ViewMarketsResponse.markets:type_name -> proto.Market
+	3, // 1: proto.Market.created_at:type_name -> google.protobuf.Timestamp
+	3, // 2: proto.Market.updated_at:type_name -> google.protobuf.Timestamp
+	3, // 3: proto.Market.deleted_at:type_name -> google.protobuf.Timestamp
+	0, // 4: proto.MarketService.ViewMarkets:input_type -> proto.ViewMarketsRequest
+	1, // 5: proto.MarketService.ViewMarkets:output_type -> proto.ViewMarketsResponse
 	5, // [5:6] is the sub-list for method output_type
 	4, // [4:5] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -250,26 +250,26 @@ var file_market_market_proto_depIdxs = []int32{
 	0, // [0:4] is the sub-list for field type_name
 }
 
-func init() { file_market_market_proto_init() }
-func file_market_market_proto_init() {
-	if File_market_market_proto != nil {
+func init() { file_market_proto_init() }
+func file_market_proto_init() {
+	if File_market_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_market_market_proto_rawDesc), len(file_market_market_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_market_proto_rawDesc), len(file_market_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_market_market_proto_goTypes,
-		DependencyIndexes: file_market_market_proto_depIdxs,
-		MessageInfos:      file_market_market_proto_msgTypes,
+		GoTypes:           file_market_proto_goTypes,
+		DependencyIndexes: file_market_proto_depIdxs,
+		MessageInfos:      file_market_proto_msgTypes,
 	}.Build()
-	File_market_market_proto = out.File
-	file_market_market_proto_goTypes = nil
-	file_market_market_proto_depIdxs = nil
+	File_market_proto = out.File
+	file_market_proto_goTypes = nil
+	file_market_proto_depIdxs = nil
 }

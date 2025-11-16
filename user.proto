@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package user;
+package proto;
 
-option go_package = "proto/user";
+option go_package = "proto/gen";
 
 service UserService {
     rpc GetUserById (GetUserRequest) returns (UserResponse);
@@ -21,5 +21,4 @@ message User {
     string name = 2;
     repeated int64 roles = 3;
 }
-
 

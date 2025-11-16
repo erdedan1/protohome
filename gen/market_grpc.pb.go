@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.33.1
-// source: market/market.proto
+// source: market.proto
 
-package market
+package gen
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	MarketService_ViewMarkets_FullMethodName = "/market.MarketService/ViewMarkets"
+	MarketService_ViewMarkets_FullMethodName = "/proto.MarketService/ViewMarkets"
 )
 
 // MarketServiceClient is the client API for MarketService service.
@@ -108,7 +108,7 @@ func _MarketService_ViewMarkets_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var MarketService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "market.MarketService",
+	ServiceName: "proto.MarketService",
 	HandlerType: (*MarketServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -117,5 +117,5 @@ var MarketService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "market/market.proto",
+	Metadata: "market.proto",
 }

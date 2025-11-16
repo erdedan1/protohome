@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package market;
+package proto;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "proto/market";
+option go_package = "proto/gen";
 
 service MarketService {
     rpc ViewMarkets (ViewMarketsRequest) returns (ViewMarketsResponse);
