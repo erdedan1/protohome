@@ -14,7 +14,7 @@ message CreateOrderRequest {
 	int64 market_id = 2;
     int64 quantity = 3;
     string order_type = 4;
-    string pricr = 5;
+    string price = 5;
 }
 
 message CreateOrderResponse {

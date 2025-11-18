@@ -9,7 +9,6 @@ package gen
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -28,7 +27,7 @@ type CreateOrderRequest struct {
 	MarketId      int64                  `protobuf:"varint,2,opt,name=market_id,json=marketId,proto3" json:"market_id,omitempty"`
 	Quantity      int64                  `protobuf:"varint,3,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	OrderType     string                 `protobuf:"bytes,4,opt,name=order_type,json=orderType,proto3" json:"order_type,omitempty"`
-	Pricr         string                 `protobuf:"bytes,5,opt,name=pricr,proto3" json:"pricr,omitempty"`
+	Price         string                 `protobuf:"bytes,5,opt,name=price,proto3" json:"price,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -91,9 +90,9 @@ func (x *CreateOrderRequest) GetOrderType() string {
 	return ""
 }
 
-func (x *CreateOrderRequest) GetPricr() string {
+func (x *CreateOrderRequest) GetPrice() string {
 	if x != nil {
-		return x.Pricr
+		return x.Price
 	}
 	return ""
 }
@@ -250,14 +249,14 @@ var File_order_proto protoreflect.FileDescriptor
 
 const file_order_proto_rawDesc = "" +
 	"\n" +
-	"\vorder.proto\x12\x05proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9b\x01\n" +
+	"\vorder.proto\x12\x05proto\"\x9b\x01\n" +
 	"\x12CreateOrderRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n" +
 	"\tmarket_id\x18\x02 \x01(\x03R\bmarketId\x12\x1a\n" +
 	"\bquantity\x18\x03 \x01(\x03R\bquantity\x12\x1d\n" +
 	"\n" +
 	"order_type\x18\x04 \x01(\tR\torderType\x12\x14\n" +
-	"\x05pricr\x18\x05 \x01(\tR\x05pricr\"=\n" +
+	"\x05price\x18\x05 \x01(\tR\x05price\"=\n" +
 	"\x13CreateOrderResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\"E\n" +
