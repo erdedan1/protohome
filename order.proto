@@ -6,7 +6,7 @@ option go_package = "proto/gen";
 
 service OrderService {
     rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse);
-    rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
+    rpc GetOrderStatus (GetOrderStatusRequest) returns (GetOrderStatusResponse);
 }
 
 message CreateOrderRequest {
@@ -22,11 +22,11 @@ message CreateOrderResponse {
     string status = 2;
 }
 
-message GetOrderRequest {
+message GetOrderStatusRequest {
     int64 user_id = 1;
     int64 order_id = 2;
 }
 
-message GetOrderResponse {
+message GetOrderStatusResponse {
     string status = 1;
 }
