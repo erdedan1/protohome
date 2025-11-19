@@ -4,6 +4,8 @@ import (
 	"context"
 
 	"github.com/google/uuid"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/trace"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 )
@@ -31,6 +33,11 @@ func UnaryServerInterceptor() grpc.UnaryServerInterceptor {
 		}
 
 		ctx = metadata.NewIncomingContext(ctx, md)
+		ctx = context.WithValue(ctx, requestIDKey, rid)
+		span := trace.SpanFromContext(ctx)
+		if span != nil && span.SpanContext().IsValid() {
+			span.SetAttributes(attribute.String(string(requestIDKey), rid))
+		}
 
 		return handler(ctx, req)
 	}
