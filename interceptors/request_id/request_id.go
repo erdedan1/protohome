@@ -8,8 +8,6 @@ import (
 	"google.golang.org/grpc/metadata"
 )
 
-type contextKey string
-
 const requestIDKey string = "x-request-id"
 
 func UnaryServerInterceptor() grpc.UnaryServerInterceptor {
@@ -33,7 +31,6 @@ func UnaryServerInterceptor() grpc.UnaryServerInterceptor {
 		}
 
 		ctx = metadata.NewIncomingContext(ctx, md)
-		ctx = context.WithValue(ctx, contextKey(requestIDKey), rid)
 
 		return handler(ctx, req)
 	}
