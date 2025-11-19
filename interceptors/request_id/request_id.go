@@ -25,7 +25,7 @@ func UnaryServerInterceptor() grpc.UnaryServerInterceptor {
 
 		ids := md.Get(Header)
 
-		if len(ids) != 0 {
+		if len(ids) == 0 {
 			rid := uuid.New().String()
 			md.Set(Header, rid)
 		}
